@@ -17,6 +17,7 @@ dependencies {
     )
 }
 
-application {
-    mainClass = 'exercise-2/src/main/java/jsonplaceholder/tests/topFrequentWords/LogTopFrequentWords.java'
+tasks.register('runExercise', JavaExec) {
+    mainClass = 'jsonplaceholder.tests.topFrequentWords.LogTopFrequentWords'
+    classpath = sourceSets.main.runtimeClasspath
 }
