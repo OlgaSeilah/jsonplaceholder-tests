@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+group = 'jsonplaceholder.tests'
+version = '1.0-SNAPSHOT'
+
+ext {
+    allureVersion = '2.20.1'
+    junitVersion = '5.10.2'
+    restAssuredVersion ='5.4.0'
+    ownerVersion = '1.0.12'
+    jacksonVersion = '2.13.0'
+}
+
+dependencies {
+    implementation(
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.aeonbits.owner:owner:${ownerVersion}",
+            "io.qameta.allure:allure-rest-assured:${allureVersion}",
+            "io.rest-assured:rest-assured:${restAssuredVersion}",
+            "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    )
+}
