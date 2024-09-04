@@ -7,11 +7,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.apache.http.HttpStatus;
-import org.hamcrest.Matcher;
 import test.jsonplaceholder.api.config.ApiConfig;
-
-import static org.apache.http.HttpStatus.SC_OK;
 
 public class SpecHelper {
 
