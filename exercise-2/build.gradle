@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+    id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+group = 'jsonplaceholder.tests'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(
+            ':api-core'
+    )
+}
+
+application {
+    mainClass = 'exercise-2/src/main/java/jsonplaceholder/tests/topFrequentWords/LogTopFrequentWords.java'
+}

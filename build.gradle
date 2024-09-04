@@ -1,71 +1,9 @@
-plugins {
-    id 'java'
-    id "io.qameta.allure" version "2.11.2" // https://plugins.gradle.org/plugin/io.qameta.allure
-    id "io.freefair.lombok" version "6.0.0-m2"
-    id 'application'
-}
 
-group = 'jsonplaceholder.tests'
-version = '1.0-SNAPSHOT'
-
-ext {
-    allureVersion = '2.20.1'
-    junitVersion = '5.10.2'
-    restAssuredVersion ='5.4.0'
-    ownerVersion = '1.0.12'
-}
-
-allure {
-    report {
-        version.set("2.19.0") // https://github.com/allure-framework/allure2
-    }
-    adapter {
-        aspectjWeaver.set(true)
-        frameworks {
-            junit5 {
-                adapterVersion.set("2.19.0") //https://github.com/allure-framework/allure-java
-            }
-        }
-    }
-
-    useJUnit5 {
-        version = "${allureVersion}"
+allprojects {
+    repositories {
+        mavenCentral()
     }
 }
 
-repositories {
-    mavenCentral()
-}
 
-dependencies {
-    implementation(
-            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
-            "org.aeonbits.owner:owner:${ownerVersion}",
-            "io.qameta.allure:allure-rest-assured:${allureVersion}",
-            "io.rest-assured:rest-assured:${restAssuredVersion}",
-            "com.fasterxml.jackson.core:jackson-databind:2.13.0"
-    )
 
-    testImplementation(
-            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
-            "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    )
-
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-}
-
-test {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-}
-
-application {
-    mainClass = 'src/main/java/test/jsonplaceholder/topFrequentWords/LogTopFrequentWordsTest.java'
-}

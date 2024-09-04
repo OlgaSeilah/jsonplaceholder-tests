@@ -1,0 +1,6 @@
+rootProject.name = 'jsonplaceholder-tests'
+
+include 'api-core'
+include 'api-tests'
+include 'exercise-2'
+
