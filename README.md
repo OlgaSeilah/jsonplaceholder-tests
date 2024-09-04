@@ -2,7 +2,7 @@
 
 API tests for site https://jsonplaceholder.typicode.com/posts
 
-The task is in the txt file [/jsonplaceholder-tests/task](#test-task)
+The task is in the txt file /jsonplaceholder-tests/task
 
 ## Environment configuration
 
